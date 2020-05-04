@@ -9,7 +9,7 @@ const navigator = createStackNavigator(
   {
     initialRouteName: "Auth",
     defaultNavigationOptions: {
-      title: "Comida 5G",
+      title: "",
     },
   }
 );
