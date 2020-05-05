@@ -7,26 +7,18 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
+import VerifyWrapper from "../../components/VerifyWrapper/VerifyWrapper";
 
 const AuthScreen = () => {
   const [phoneNo, setPhoneNo] = useState(null);
   return (
     <View style={styles.container}>
       <Text style={styles.logoText}>Comida 5G</Text>
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.textbox}
-          underlineColorAndroid="transparent"
-          placeholder="Your phone number"
-          onChangeText={(text) => setPhoneNo(text)}
-          value={phoneNo}
-        />
-      </View>
-      <View style={styles.inputContainer}>
-        <TouchableOpacity style={styles.button} underlayColor="#fff">
-          <Text style={styles.loginText}>Get Verification Code 😎</Text>
-        </TouchableOpacity>
-      </View>
+      <VerifyWrapper
+        phoneNo={phoneNo}
+        handlePhoneNo={(number) => setPhoneNo(number)}
+        isVerification
+      />
 
       <Text style={styles.signupText}>I'll sign up later</Text>
       <Text style={styles.helpText}>Need help?</Text>
@@ -45,9 +37,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: 200,
     marginBottom: 70,
-    textShadowColor: "rgba(0, 0, 0, 0.75)",
-    textShadowOffset: { width: -1, height: 1 },
-    textShadowRadius: 1,
   },
   inputContainer: {
     borderBottomColor: "#F5FCFF",
