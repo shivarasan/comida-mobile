@@ -11,7 +11,12 @@ import {
 } from "react-native";
 import OTPInputView from "@twotalltotems/react-native-otp-input";
 
-const VerifyWrapper = ({ phoneNo, handlePhoneNo, isVerification }) => {
+const VerifyWrapper = ({
+  phoneNo,
+  handlePhoneNo,
+  isVerification,
+  handleVerify,
+}) => {
   return (
     <>
       {isVerification ? (
@@ -19,7 +24,9 @@ const VerifyWrapper = ({ phoneNo, handlePhoneNo, isVerification }) => {
           style={styles.otpWrapper}
           pinCount={4}
           // code={this.state.code} //You can supply this prop or not. The component will be used as a controlled / uncontrolled component respectively.
-          // onCodeChanged = {code => { this.setState({code})}}
+          // onCodeChanged={(code) => {
+          //   this.setState({ code });
+          // }}
           autoFocusOnLoad
           codeInputFieldStyle={styles.underlineStyleBase}
           codeInputHighlightStyle={styles.underlineStyleHighLighted}
@@ -28,7 +35,7 @@ const VerifyWrapper = ({ phoneNo, handlePhoneNo, isVerification }) => {
           }}
         />
       ) : (
-        <View style={styles.inputContainer}>
+        <View style={[styles.inputContainer, styles.phoneNoWrapper]}>
           <TextInput
             style={styles.textbox}
             underlineColorAndroid="transparent"
@@ -39,8 +46,14 @@ const VerifyWrapper = ({ phoneNo, handlePhoneNo, isVerification }) => {
         </View>
       )}
       <View style={styles.inputContainer}>
-        <TouchableOpacity style={styles.button} underlayColor="#fff">
-          <Text style={styles.verifyText}>Get Verification Code 😎</Text>
+        <TouchableOpacity
+          style={styles.button}
+          underlayColor="#fff"
+          onPress={handleVerify}
+        >
+          <Text style={styles.verifyText}>
+            {isVerification ? "Verify! 😀" : "Get Verification Code 😎"}
+          </Text>
         </TouchableOpacity>
       </View>
     </>
@@ -51,6 +64,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     borderBottomColor: "#F5FCFF",
     backgroundColor: "#FFFFFF",
+    marginTop: 10,
     marginLeft: 20,
     marginRight: 20,
     marginBottom: 20,
@@ -107,17 +121,19 @@ const styles = StyleSheet.create({
   otpWrapper: {
     flex: 1,
     width: 325,
-    height: 50,
-    marginBottom: 10,
+    height: 10,
+    maxHeight: 100,
+    // marginBottom: 10,
     marginLeft: 20,
     marginRight: 20,
+    marginTop: 60,
   },
 
   underlineStyleBase: {
     color: "black",
     backgroundColor: "#fff",
     width: 70,
-    height: 45,
+    height: 50,
     borderRadius: 20,
     borderWidth: 2,
     borderColor: "#fff",
@@ -133,6 +149,9 @@ const styles = StyleSheet.create({
 
   underlineStyleHighLighted: {
     borderColor: "#fff",
+  },
+  phoneNoWrapper: {
+    marginTop: 80,
   },
 });
 

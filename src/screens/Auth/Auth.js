@@ -9,7 +9,8 @@ import {
 } from "react-native";
 import VerifyWrapper from "../../components/VerifyWrapper/VerifyWrapper";
 
-const AuthScreen = () => {
+const AuthScreen = ({ navigation }) => {
+  const [isVerification, setIsVerification] = useState(false);
   const [phoneNo, setPhoneNo] = useState(null);
   return (
     <View style={styles.container}>
@@ -17,11 +18,21 @@ const AuthScreen = () => {
       <VerifyWrapper
         phoneNo={phoneNo}
         handlePhoneNo={(number) => setPhoneNo(number)}
-        isVerification
+        isVerification={isVerification}
+        handleVerify={() => {
+          !isVerification
+            ? setIsVerification(true)
+            : navigation.navigate("Home");
+        }}
       />
-
-      <Text style={styles.signupText}>I'll sign up later</Text>
-      <Text style={styles.helpText}>Need help?</Text>
+      {isVerification ? (
+        <Text>Get new code in 27 seconds</Text>
+      ) : (
+        <>
+          <Text style={styles.signupText}>I'll sign up later</Text>
+          <Text style={styles.helpText}>Need help?</Text>
+        </>
+      )}
     </View>
   );
 };
@@ -36,7 +47,6 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     marginTop: 200,
-    marginBottom: 70,
   },
   inputContainer: {
     borderBottomColor: "#F5FCFF",
@@ -93,7 +103,7 @@ const styles = StyleSheet.create({
     textDecorationColor: "#000",
   },
   helpText: {
-    marginTop: 120,
+    marginTop: 110,
     textDecorationLine: "underline",
     textDecorationStyle: "solid",
     textDecorationColor: "#000",
