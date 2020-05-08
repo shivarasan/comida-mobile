@@ -90,6 +90,14 @@ const styles = StyleSheet.create({
   MainFoodContainer: {
     flex: 1,
     flexDirection: "column",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   mainPhotoWrapper: {
     position: "relative",
@@ -149,9 +157,18 @@ const styles = StyleSheet.create({
   subContainer: {
     flex: 1,
     width: 175,
+    height: 150,
     // justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#EDEAEE",
+    // backgroundColor: "#EDEAEE",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   photoWrapper: {
     position: "relative",
@@ -174,11 +191,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     color: "#444444",
+    padding: 10,
   },
   titleWrapper: {
     // position: "relative",
     width: 170,
-    height: 50,
+    height: 40,
     backgroundColor: "white",
     borderRadius: 20,
     borderTopLeftRadius: 0,

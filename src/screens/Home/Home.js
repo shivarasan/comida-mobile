@@ -53,12 +53,12 @@ function Item({ title, seletedTitle, handleSelection }) {
   );
 }
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const [seletedTitle, setSelectedTitle] = useState(null);
   return (
     <View style={styles.container}>
       <View elevation={5} style={styles.headerContainer}>
-        <HomeHeader />
+        <HomeHeader navigation={navigation} />
         <SafeAreaView style={styles.FlatListContainer}>
           <FlatList
             horizontal

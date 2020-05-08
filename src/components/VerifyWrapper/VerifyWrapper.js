@@ -130,6 +130,8 @@ const styles = StyleSheet.create({
   },
 
   underlineStyleBase: {
+    fontSize: 20,
+    fontWeight: "bold",
     color: "black",
     backgroundColor: "#fff",
     width: 70,
