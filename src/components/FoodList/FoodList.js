@@ -14,19 +14,28 @@ import { sqrt } from "react-native-reanimated";
 // import styles from "./styles";
 
 const FoodList = () => {
-  //   const renderRecipes = ({ item }) => (
-  //     <TouchableHighlight>
-  //       <View style={styles.container}>
-  //         <Image style={styles.photo} source={{ uri: item.photo_url }} />
-  //         <Text style={styles.title}>{item.title}</Text>
-  //       </View>
-  //     </TouchableHighlight>
-  //   );
+  const renderRecipes = ({ item }) => (
+    <TouchableHighlight>
+      <View style={styles.subContainer}>
+        <View>
+          <View style={styles.photoWrapper}>
+            <Image style={styles.photo} source={{ uri: item.photo_url }} />
+            <View style={styles.priceWrapper}>
+              <Text style={styles.priceText}>€ 3.80</Text>
+            </View>
+          </View>
+          <View style={styles.titleWrapper}>
+            <Text style={styles.title}>{item.title}</Text>
+          </View>
+        </View>
+      </View>
+    </TouchableHighlight>
+  );
 
   return (
     <View style={styles.container}>
       <Text style={styles.foodCategoryTitle}>New</Text>
-      <View>
+      <View style={{ height: 150 }}>
         <TouchableHighlight>
           <View style={styles.MainFoodContainer}>
             <View style={styles.mainPhotoWrapper}>
@@ -45,7 +54,14 @@ const FoodList = () => {
           </View>
         </TouchableHighlight>
       </View>
-      {/* <View>
+      <View
+        style={{
+          flex: 1,
+          width: 350,
+          justifyContent: "center",
+          flexDirection: "row",
+        }}
+      >
         <FlatList
           vertical
           showsVerticalScrollIndicator={false}
@@ -54,7 +70,7 @@ const FoodList = () => {
           renderItem={renderRecipes}
           keyExtractor={(item) => `${item.recipeId}`}
         />
-      </View> */}
+      </View>
     </View>
   );
 };
@@ -84,6 +100,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
   },
+
   mainPhoto: {
     position: "absolute",
     width: 350,
@@ -124,6 +141,44 @@ const styles = StyleSheet.create({
     position: "relative",
     width: 350,
     height: 40,
+    backgroundColor: "white",
+    borderRadius: 20,
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+  },
+  subContainer: {
+    flex: 1,
+    width: 175,
+    // justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#EDEAEE",
+  },
+  photoWrapper: {
+    position: "relative",
+    width: 170,
+    height: 100,
+    overflow: "hidden",
+    borderRadius: 20,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+  },
+  photo: {
+    width: 170,
+    height: 100,
+    borderRadius: 15,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+  },
+  title: {
+    fontSize: 17,
+    fontWeight: "bold",
+    textAlign: "center",
+    color: "#444444",
+  },
+  titleWrapper: {
+    // position: "relative",
+    width: 170,
+    height: 50,
     backgroundColor: "white",
     borderRadius: 20,
     borderTopLeftRadius: 0,

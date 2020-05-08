@@ -12,6 +12,7 @@ import {
 import HomeHeader from "../../components/HomeHeader/HomeHeader";
 import FoodList from "../../components/FoodList/FoodList";
 import Constants from "expo-constants";
+import { ScrollView } from "react-native-gesture-handler";
 const DATA = [
   {
     id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28basfasgfsdfg",
@@ -31,7 +32,7 @@ const DATA = [
   },
   {
     id: "bd7acbsdfsdea-c1b1-46c2-aed5-3ad53abb28basdfsd",
-    title: "Spagl",
+    title: "Pizza",
   },
 ];
 function Item({ title, seletedTitle, handleSelection }) {
@@ -76,8 +77,12 @@ const HomeScreen = () => {
           />
         </SafeAreaView>
       </View>
-
-      <FoodList />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <FoodList />
+        <FoodList />
+        <FoodList />
+        <FoodList />
+      </ScrollView>
     </View>
   );
 };
