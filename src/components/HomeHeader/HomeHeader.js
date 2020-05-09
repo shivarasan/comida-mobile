@@ -7,6 +7,7 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
+import styles from "./styles";
 
 const HomeHeader = ({ navigation }) => {
   return (
@@ -31,12 +32,5 @@ const HomeHeader = ({ navigation }) => {
     </View>
   );
 };
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 30,
-    fontWeight: "bold",
-    textAlign: "left",
-  },
-});
 
 export default HomeHeader;

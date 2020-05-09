@@ -6,12 +6,11 @@ import {
   View,
   TouchableHighlight,
   Image,
-  StyleSheet,
 } from "react-native";
 // import styles from "./styles";
 import { recipes } from "../../data/dataArrays";
 import { sqrt } from "react-native-reanimated";
-// import styles from "./styles";
+import styles from "./styles";
 
 const FoodList = () => {
   const renderRecipes = ({ item }) => (
@@ -74,134 +73,5 @@ const FoodList = () => {
     </View>
   );
 };
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#EDEAEE",
-    paddingLeft: 10,
-    paddingRight: 10,
-  },
-  foodCategoryTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginTop: 10,
-    marginBottom: 10,
-  },
-  MainFoodContainer: {
-    flex: 1,
-    flexDirection: "column",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  mainPhotoWrapper: {
-    position: "relative",
-    width: 350,
-    height: 100,
-    overflow: "hidden",
-    borderRadius: 20,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-  },
-
-  mainPhoto: {
-    position: "absolute",
-    width: 350,
-    height: 100,
-    borderRadius: 20,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-  },
-  priceWrapper: {
-    position: "absolute",
-    right: -15,
-    top: -10,
-    padding: 10,
-    width: 100,
-    backgroundColor: "#9C3BE3",
-    borderRadius: 20,
-  },
-  priceText: {
-    color: "white",
-    fontSize: 17,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  mainTitle: {
-    // flex: 1,
-    padding: 10,
-    fontSize: 17,
-    fontWeight: "bold",
-    textAlign: "center",
-    color: "#444444",
-
-    // borderTopRightRadius: 0,
-    // marginTop:
-    // marginRight: 5,
-    // marginLeft: 5,
-  },
-  mainTitleWrapper: {
-    position: "relative",
-    width: 350,
-    height: 40,
-    backgroundColor: "white",
-    borderRadius: 20,
-    borderTopLeftRadius: 0,
-    borderTopRightRadius: 0,
-  },
-  subContainer: {
-    flex: 1,
-    width: 175,
-    height: 150,
-    // justifyContent: "center",
-    alignItems: "center",
-    // backgroundColor: "#EDEAEE",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  photoWrapper: {
-    position: "relative",
-    width: 170,
-    height: 100,
-    overflow: "hidden",
-    borderRadius: 20,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-  },
-  photo: {
-    width: 170,
-    height: 100,
-    borderRadius: 15,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-  },
-  title: {
-    fontSize: 17,
-    fontWeight: "bold",
-    textAlign: "center",
-    color: "#444444",
-    padding: 10,
-  },
-  titleWrapper: {
-    // position: "relative",
-    width: 170,
-    height: 40,
-    backgroundColor: "white",
-    borderRadius: 20,
-    borderTopLeftRadius: 0,
-    borderTopRightRadius: 0,
-  },
-});
 
 export default FoodList;
